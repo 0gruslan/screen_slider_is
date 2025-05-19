@@ -2,7 +2,11 @@ document.addEventListener('DOMContentLoaded', function() {
     const slider = document.querySelector('.slider');
     const images = [
         'image1.jpg',
-        'image2.jpg'
+        'image2.jpg',
+        'image3.jpg',
+        'image4.jpg',
+        'image5.jpg'
+
         // Добавьте сюда все ваши изображения
     ];
     let currentSlide = 0;
