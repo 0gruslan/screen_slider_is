@@ -1,23 +1,11 @@
 document.addEventListener('DOMContentLoaded', function() {
     const slider = document.querySelector('.slider');
-    const images = [];
     let currentSlide = 0;
 
-    // Загружаем все изображения из папки images
-    fetch('images/')
-        .then(response => response.text())
-        .then(html => {
-            const parser = new DOMParser();
-            const doc = parser.parseFromString(html, 'text/html');
-            const links = doc.querySelectorAll('a[href]');
-
-            links.forEach(link => {
-                const href = link.getAttribute('href');
-                if (href.match(/\.(jpg|jpeg|png|gif)$/i)) {
-                    images.push(href);
-                }
-            });
-
+    // Загружаем список изображений из JSON-файла
+    fetch('images.json')
+        .then(response => response.json())
+        .then(images => {
             // Создаем слайды для каждого изображения
             images.forEach((image, index) => {
                 const slide = document.createElement('div');
